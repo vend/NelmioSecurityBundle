@@ -1,6 +1,9 @@
+parameters:
+    nelmio_security.flexible_ssl_listener.class: Nelmio\SecurityBundle\EventListener\FlexibleSslListener
+
 services:
     nelmio_security.flexible_ssl_listener:
-        class: Nelmio\SecurityBundle\EventListener\FlexibleSslListener
+        class: %nelmio_security.flexible_ssl_listener.class
         arguments:
             - %nelmio_security.flexible_ssl.cookie_name%
             - %nelmio_security.flexible_ssl.unsecured_logout%

@@ -1,7 +1,10 @@
+parameters:
+    nelmio_security.content_type_listener.class: Nelmio\SecurityBundle\EventListener\ContentTypeListener
+
 services:
     nelmio_security.content_type_listener:
         scope: request
-        class: Nelmio\SecurityBundle\EventListener\ContentTypeListener
+        class: %nelmio_security.content_type_listener.class%
         arguments:
             - %nelmio_security.content_type.nosniff%
 

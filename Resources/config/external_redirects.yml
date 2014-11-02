@@ -1,10 +1,11 @@
 parameters:
     nelmio_security.external_redirects.whitelist: ~
+    nelmio_security.external_redirect_listener.class: Nelmio\SecurityBundle\EventListener\ExternalRedirectListener
 
 services:
     nelmio_security.external_redirect_listener:
         scope: request
-        class: Nelmio\SecurityBundle\EventListener\ExternalRedirectListener
+        class: %nelmio_security.external_redirect_listener.class%
         arguments:
             - %nelmio_security.external_redirects.abort%
             - %nelmio_security.external_redirects.override%
